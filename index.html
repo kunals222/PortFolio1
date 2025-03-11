@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kunal Suryawanshi</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./logo.webp" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Open+Sans:wght@400;500;700&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
+
+    <style>
+      .skills-body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a55);
+            color: white;
+        }
+
+        h2.skills-title {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 28px;
+            color: #fff;
+        }
+
+        div.skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1000px;
+        }
+
+        div.skill-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        div.skill-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        img.skill-logo {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        p.skill-name {
+            margin: 0;
+            font-weight: bold;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .profile-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 35px;
+            margin-top: 20px;
+        }
+
+        .profile-link {
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .profile-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+        }
+
+        @media (max-width: 600px) {
+            h2.skills-title {
+                font-size: 24px;
+                margin: 15px 0;
+            }
+
+            div.skill-card {
+                padding: 10px;
+            }
+
+            img.skill-logo {
+                width: 30px;
+                height: 30px;
+            }
+
+            p.skill-name {
+                font-size: 14px;
+            }
+        }
+
+        @media(max-width: 800px) {
+            p.hero-text {
+                font-size: 1.3rem;
+            }
+
+            h2.hero-title {
+                font-size: 1.5rem;
+            }
+
+            h2.hero-title strong {
+                font-size: 2.1rem;
+            }
+
+            .btn-group{
+              gap: 0px;
+            }
+
+            .btn-group .profile-links{
+              margin: 0px;
+              
+            }
+
+            .btn-group a{
+              font-size: 1.2rem;
+            }
+
+          
+            
+        }
+
+        .scrollable::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollable {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .circular-scroll {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+        @media screen and (max-width: 600px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-text {
+                font-size: 1rem;
+            }
+
+            .profile-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .profile-links {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#">
+        <h1 class="logo">Kunal Suryawanshi</h1>
+      </a>
+
+      <button class="nav-toggle-btn" aria-label="Toggle Menu" data-nav-toggle-btn>
+        <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+        <ion-icon name="close-outline" class="close-icon"></ion-icon>
+      </button>
+
+      <nav class="navbar container">
+        <ul class="navbar-list">
+
+         
+
+          <li>
+            <a href="#about" class="navbar-link" data-nav-link>About</a>
+          </li>
+
+          <li>
+            <a href="#portfolio" class="navbar-link" data-nav-link>Portfolio</a>
+          </li>
+
+          <li>
+            <a href="#skills" class="navbar-link" data-nav-link>Skills</a>
+          </li>
+
+          <li>
+            <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+
+          <li>
+            <a href="#blog" class="navbar-link" data-nav-link>Activities</a>
+          </li>
+
+          <li>
+            <a href="https://drive.google.com/drive/folders/1WAktSYky4Xr8ofTWSD_6rWv7ifI7CjlR?usp=sharing" class="navbar-link">Certificates</a>
+          </li>
+
+          <li>
+            <a href="./KUNAL_SURYAWANSHI_VIIT.pdf" class="btn btn-primary" download>Download CV</a>
+          </li>
+
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home">
+        <div class="container">
+
+          <div class="hero-banner">
+
+            <img src="./assets/images/2.jpg" width="800" height="864" loading="lazy" alt="Ethan's Photo"
+              class="img-cover">
+
+            <div class="elem elem-1">
+              <p class="elem-title">5</p>
+
+              <p class="elem-text">research papers published</p>
+            </div>
+
+            <div class="elem elem-2">
+              <p class="elem-title">1000+</p>
+
+              <p class="elem-text">DSA Problems Solved</p>
+            </div>
+
+            <div class="elem elem-3">
+              <ion-icon name="trophy"></ion-icon>
+            </div>
+
+            <!-- <img src="./assets/images/rotate-img.png" width="169" height="172" alt="I'm developer from New York"
+              class="rotate-img"> -->
+
+          </div>
+
+          <div class="hero-content">
+
+            <h2 class="hero-title">
+                <span>Hello, I'm</span>
+                <strong>Kunal Suryawanshi</strong>a Passionate Software Engineer
+            </h2>
+        
+            <p class="hero-text">
+              A versatile developer skilled in Web Development, ML, AI, and DevOps, creating dynamic, innovative, and user-centric solutions. Pushing technology's boundaries to build impactful applications.    
+            </p>
+        
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary blue">Get in Touch</a>
+                <a href="#about" class="btn">Learn More</a>
+                <div class="profile-links">
+
+                  <!-- GitHub -->
+                   
+                  <a href="https://github.com/kunals222" target="_blank" class="profile-link" style="background-color: #fff; border-radius: 30px;padding: 2px;">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="profile-logo" />
+                  </a>
+      
+                  <!-- LinkedIn -->
+                  <a href="https://www.linkedin.com/in/kunal-suryawanshi-943827259/" target="_blank" class="profile-link" style="background-color: #fff; border-radius: 30px;padding: 2px;">
+                      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="profile-logo" style="border-radius: 30px; padding: 2px;"/>
+                  </a>
+      
+                  <!-- LeetCode -->
+                  <a href="https://leetcode.com/Kunal222/" target="_blank" class="profile-link" style="background-color: #fff; border-radius: 30px;padding-top: 5px;">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" class="profile-logo" style="border-radius: 30px; padding: 2px;"/>
+                  </a>
+      
+                  <!-- GeeksforGeeks -->
+                  <a href="https://auth.geeksforgeeks.org/user/kunal22j30b/?utm_source=geeksforgeeks&utm_medium=my_profile&utm_campaign=auth_user" target="_blank" class="profile-link" style="background-color: #fff; border-radius: 30px;padding: 2px;">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg" alt="GeeksforGeeks" class="profile-logo" style="border-radius: 30px; padding: 2px;"/>
+                  </a>
+      
+              </div>
+            </div>
+        
+        </div>
+        
+        
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about">
+        <div class="container">
+
+          <figure class="about-banner">
+
+            <img src="./assets/images/1.jpg" width="800" height="652" loading="lazy" alt="Ethan's Photo"
+              class="img-cover">
+
+            <img src="./assets/images/3.jpg" width="800" height="717" loading="lazy" alt="Ethan's Photo"
+              class="abs-img">
+
+            <div class="abs-icon abs-icon-1">
+              <ion-icon name="logo-css3"></ion-icon>
+            </div>
+
+            <div class="abs-icon abs-icon-2">
+              <ion-icon name="logo-javascript"></ion-icon>
+            </div>
+
+            <div class="abs-icon abs-icon-3">
+              <ion-icon name="logo-html5"></ion-icon>
+            </div>
+
+          </figure>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">I'm a Versatile Software Engineer</p>
+        
+            <h2 class="h2 section-title">I Build Intelligent and Impactful Applications</h2>
+        
+            <p class="section-text">
+                With a passion for crafting dynamic and efficient software solutions, I leverage my expertise in Web Development, Machine Learning, AI, and DevOps to create innovative applications that make a real difference. My commitment to quality and performance drives me to push the boundaries of technology.
+            </p>
+        
+            <p class="section-text">
+                From developing full-stack web applications to implementing AI-driven solutions, I thrive on transforming complex ideas into user-friendly experiences. My journey is fueled by curiosity and a desire to bridge the gap between technology and real-world impact.
+            </p>
+        
+            <a href="#portfolio" class="btn btn-primary blue">View Portfolio</a>
+        
+        </div>
+        
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PORTFOLIO
+      -->
+
+      <section class="section portfolio" id="portfolio">
+        <div class="container">
+
+          <p class="section-subtitle">Portfolio</p>
+
+<h2 class="h2 section-title">My Innovative Projects</h2>
+
+<p class="section-text">
+    A showcase of my most impactful and innovative projects, demonstrating my skills in Web Development, Machine Learning, AI, and DevOps. From intelligent solutions to dynamic applications, explore how I bring ideas to life through technology.
+</p>
+
+
+          <ul class="portfolio-list">
+
+            <li>
+              <a href="#" class="portfolio-card" style="background-image: url('./assets/images/bg4.png');">
+                <div class="card-content" style="
+                    backdrop-filter: blur(10px); 
+                    background: rgba(255, 255, 255, 0.2); 
+                    border: 1px solid rgba(255, 255, 255, 0.3); 
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+                    padding: 20px; 
+                    border-radius: 16px; 
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                    max-width: fit-content;">
+            
+                  <p class="card-subtitle" style="color:  yellow; font-weight: bold;">TreatLine</p>
+            
+                  <h3 class="h3 card-title" style="color: #ff9; margin: 8px 0;">Smart telemedicine appointment scheduling system.</h3>
+            
+                  <span class="btn-link" style="color: #fff; font-size: 16px;">
+                    <span>View Project</span>
+                    <ion-icon name="arrow-forward"></ion-icon>
+                  </span>
+            
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://gfgviit-wheat.vercel.app/" class="portfolio-card" style="background-image: url('./assets/images/bg3.png');">
+                <div class="card-content" style="
+                    backdrop-filter: blur(10px); 
+                    background: rgba(255, 255, 255, 0.2); 
+                    border: 1px solid rgba(255, 255, 255, 0.3); 
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+                    padding: 20px; 
+                    border-radius: 16px; 
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                    max-width: fit-content;">
+            
+                  <p class="card-subtitle" style="color: yellow; font-weight: bold;">GeekVishwa</p>
+            
+                  <h3 class="h3 card-title" style="color: #ff9; margin: 8px 0;">Upcoming events at GFG VIIT.</h3>
+            
+                  <span class="btn-link" style="color: #fff; font-size: 16px;">
+                    <span>View Project</span>
+                    <ion-icon name="arrow-forward"></ion-icon>
+                  </span>
+            
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://devfolio.co/projects/easylink-helpers-3123" class="portfolio-card" style="background-image: url('./assets/images/l5.png');">
+                <div class="card-content" style="
+                    backdrop-filter: blur(10px); 
+                    background: rgba(255, 255, 255, 0.2); 
+                    border: 1px solid rgba(255, 255, 255, 0.3); 
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+                    padding: 20px; 
+                    border-radius: 16px; 
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                    max-width: fit-content;">
+            
+                  <p class="card-subtitle" style="color:  yellow; font-weight: bold;">EasyLink Helpers</p>
+            
+                  <h3 class="h3 card-title" style="color: #ff9; margin: 8px 0;">Connecting laborers with customers efficiently.</h3>
+            
+                  <span class="btn-link" style="color: #fff; font-size: 16px;">
+                    <span>View Project</span>
+                    <ion-icon name="arrow-forward"></ion-icon>
+                  </span>
+            
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="portfolio-card" style="background-image: url('./assets/images/h6.png');">
+                <div class="card-content" style="
+                    backdrop-filter: blur(10px); 
+                    background: rgba(255, 255, 255, 0.2); 
+                    border: 1px solid rgba(255, 255, 255, 0.3); 
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+                    padding: 20px; 
+                    border-radius: 16px; 
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                    max-width: fit-content;">
+            
+                  <p class="card-subtitle" style="color:  yellow; font-weight: bold;">VishwaCare</p>
+            
+                  <h3 class="h3 card-title" style="color: #ff9; margin: 8px 0;">Hospital Bed Booking System</h3>
+            
+                  <span class="btn-link" style="color: #fff; font-size: 16px;">
+                    <span>View Project</span>
+                    <ion-icon name="arrow-forward"></ion-icon>
+                  </span>
+            
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SKILLS
+      -->
+
+      <section class="section skills" id="skills">
+        <div class="container">
+
+          <p class="section-subtitle">My Skills</p>
+
+          <h2 class="h2 section-title">Constantly Evolving My Skillset</h2>
+
+          <p class="section-text">
+            Passionate about learning and mastering cutting-edge technologies, including Web Development, Machine Learning, AI, and DevOps. Always striving to build efficient and impactful solutions.
+          </p>
+          
+          <div class="skills-body">
+          <div class="skills-container" id="skills-container-1">
+            
+        </div>
+      </div>
+
+        </div>
+      </section>
+
+     
+      
+
+
+
+      <!-- 
+        - #CONTACT
+      -->
+
+      <section class="section contact" id="contact">
+        <div class="container">
+
+          <div class="contact-card">
+
+            <p class="card-subtitle">Feel free to reach out </p>
+
+            <h2 class="h2 section-title"> I'd love to hear from you!</h2>
+
+            
+
+              <ul class="contact-list">
+
+                <li class="contact-item">
+
+                  <div class="contact-icon">
+                    <ion-icon name="location"></ion-icon>
+                  </div>
+
+                  <div>
+                    <h3 class="contact-item-title">Address</h3>
+
+                    <address class="contact-item-link">
+                      Pune , Maharashtra , India
+                    </address>
+                  </div>
+
+                </li>
+
+                <li class="contact-item">
+
+                  <div class="contact-icon">
+                    <ion-icon name="mail"></ion-icon>
+                  </div>
+
+                  <div class="scrollable">
+                    <h3 class="contact-item-title">Email</h3>
+
+                    <a href="mailto:kunal.22210438@viit.ac.in" class="contact-item-link circular-scroll">kunal.22210438@viit.ac.in</a>
+                  </div>
+
+                </li>
+
+                <li class="contact-item">
+
+                  <div class="contact-icon">
+                    <ion-icon name="call"></ion-icon>
+                  </div>
+
+                  <div>
+                    <h3 class="contact-item-title">Phone</h3>
+
+                    <a href="tel:+8485072911" class="contact-item-link">8485072911</a>
+                  </div>
+
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" id="blog">
+        <div class="container">
+
+          <p class="section-subtitle">Beyond Academics</p>
+
+<h2 class="h2 section-title">Explore My Extracurricular Journey</h2>
+
+<p class="section-text">
+  Discover the various extracurricular activities I've been a part of, from leading tech clubs and organizing events to participating in coding competitions and community projects. These experiences have shaped my skills and passion beyond academics.
+</p>
+          <ul class="blog-list">
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/ieee1.jpg" width="1181" height="843" loading="lazy"
+                      alt="Jim Morisson Says when the musics over turn off the light" class="img-cover">
+                  </a>
+                </figure>
+
+                <a href="#" class="card-tag">IOT Workshop at Shirwal</a>
+
+                <h3 class="card-title">
+                  <h5>I had the opportunity to visit MES English Medium School in Shirwal, where I conducted an interactive session on the fundamentals of the Internet of Things (IoT) and its practical applications. Organized by the IEEE VIIT Club, this session aimed to inspire young minds by showcasing real-world IoT implementations and hands-on demonstrations. It was an enriching experience to share knowledge and spark curiosity among the students.</h5>
+                </h3>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/jspm4.jpg" width="1181" height="843" loading="lazy"
+                      alt="Jim Morisson Says when the musics over turn off the light" class="img-cover">
+                  </a>
+                </figure>
+
+                <a href="#" class="card-tag">Coding Battle at JSPM</a>
+
+                <h3 class="card-title">
+                  <h5>I had the privilege of participating in an exhilarating two-day coding competition held at JSPM. This hackathon brought together talented developers from diverse backgrounds, creating an intensely competitive environment that pushed our problem-solving and coding skills to the limit. Advancing to the final round was an incredible achievement, as it required not only technical expertise but also the ability to think creatively and adapt quickly to complex challenges. The event was a great learning experience, fostering collaboration, innovation, and perseverance. I am grateful for the opportunity to compete against some of the brightest minds and proud to have made it to the final stage.</h5>
+                </h3>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/geekvishwa2.jpg" width="1181" height="843" loading="lazy"
+                      alt="Jim Morisson Says when the musics over turn off the light" class="img-cover">
+                  </a>
+                </figure>
+
+                <a href="#" class="card-tag">Building EasyLinkHelper at Geekwishwa</a>
+
+                <h3 class="card-title">
+                  <h5>Participated in a 15-day hackathon organized by Geekwishwa (GFG VIIT). Our team developed EasyLinkHelper, a platform connecting laborers and customers for smooth and cost-effective collaboration. The project focused on skill showcasing and direct connections, providing practical solutions to real-world challenges. It was an enriching experience to work with a diverse team, combining our skills and creativity to build a user-friendly and impactful application. The hackathon was a great opportunity to learn, grow, and contribute to the community, and I am proud of our team's innovative solution.</h5>
+                  </h5>
+                </h3>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-to-top" data-back-to-top>BACK TOP</a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  
+  <script>
+    const skills = [
+        { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "SQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "DevOps", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" }
+    ];
+
+    const skillsContainer = document.getElementById("skills-container-1");
+
+  skills.forEach((skill) => {
+    const skillCard = document.createElement("div");
+    skillCard.classList.add("skill-card");
+    
+
+    skillCard.innerHTML = `
+      <img src="${skill.logo}" alt="${skill.name} Logo" class="skill-logo">
+      <p class="skill-name">${skill.name}</p>
+      
+    `;
+    skillsContainer.appendChild(skillCard);
+  });
+</script>
+
+<script src="./assets/js/script.js"></script>
+  
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+
+</body>
+
+</html>
