@@ -28,12 +28,44 @@
     rel="stylesheet">
 
     <style>
-      .skills-body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1e1e2f, #3a3a55);
-            color: white;
+        .skills-body {
+          margin-top: 10px;
+          padding: 24px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 22px;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          background: radial-gradient(circle at top right, rgba(94, 114, 228, 0.28), transparent 42%),
+                radial-gradient(circle at left bottom, rgba(72, 187, 255, 0.23), transparent 46%),
+                linear-gradient(145deg, #171d35, #232a49 62%, #1a223f);
+          box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+          color: white;
+        }
+
+        .skills-body::before,
+        .skills-body::after {
+          content: "";
+          position: absolute;
+          width: 260px;
+          height: 260px;
+          border-radius: 50%;
+          filter: blur(24px);
+          opacity: 0.32;
+          pointer-events: none;
+          animation: auraMove 10s ease-in-out infinite;
+        }
+
+        .skills-body::before {
+          top: -120px;
+          right: -90px;
+          background: #7e6cff;
+        }
+
+        .skills-body::after {
+          bottom: -140px;
+          left: -90px;
+          background: #2bc4ff;
+          animation-delay: -3s;
         }
 
         h2.skills-title {
@@ -45,42 +77,118 @@
 
         div.skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 20px;
+          grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+          gap: 16px;
             justify-content: center;
-            margin: 20px auto;
-            padding: 20px;
+          margin: 0 auto;
+          padding: 0;
             max-width: 1000px;
+          position: relative;
+          z-index: 1;
         }
 
         div.skill-card {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+          justify-content: center;
+          min-height: 108px;
+          padding: 14px 10px;
+          background: linear-gradient(165deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.07));
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(8px);
+          box-shadow: 0 8px 16px rgba(5, 10, 35, 0.25);
+          transition: transform 0.28s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+          opacity: 0;
+          transform: translateY(18px) scale(0.96);
+        }
+
+        div.skill-card.visible {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          transition-delay: var(--skill-delay, 0ms);
         }
 
         div.skill-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+          transform: translateY(-6px) scale(1.03);
+          box-shadow: 0 12px 24px rgba(10, 20, 45, 0.35);
+          border-color: rgba(114, 216, 255, 0.75);
         }
 
         img.skill-logo {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
+          width: 44px;
+          height: 44px;
+          margin-bottom: 8px;
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+          transform-origin: center;
+          animation: skillIconFloat 3.6s ease-in-out infinite;
+        }
+
+        .skills-container .skill-card:nth-child(2n) .skill-logo {
+          animation-duration: 4.2s;
+          animation-delay: -0.8s;
+        }
+
+        .skills-container .skill-card:nth-child(3n) .skill-logo {
+          animation-duration: 3.9s;
+          animation-delay: -1.3s;
+        }
+
+        .skills-container .skill-card:nth-child(4n) .skill-logo {
+          animation-duration: 4.6s;
+          animation-delay: -1.8s;
+        }
+
+        .skills-container .skill-card:hover .skill-logo {
+          animation: skillIconFocus 0.65s ease;
         }
 
         p.skill-name {
             margin: 0;
-            font-weight: bold;
+          font-weight: 700;
             text-align: center;
-            font-size: 16px;
+          font-size: 1.4rem;
+          line-height: 1.25;
+          color: #f5f8ff;
+        }
+
+        @keyframes auraMove {
+          0%,
+          100% {
+            transform: translate(0, 0);
+          }
+
+          50% {
+            transform: translate(16px, -14px);
+          }
+        }
+
+        @keyframes skillIconFloat {
+          0%,
+          100% {
+            transform: translateY(0) rotate(0deg) scale(1);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+          }
+
+          50% {
+            transform: translateY(-6px) rotate(2deg) scale(1.04);
+            filter: drop-shadow(0 8px 14px rgba(62, 196, 255, 0.35));
+          }
+        }
+
+        @keyframes skillIconFocus {
+          0% {
+            transform: scale(1) rotate(0deg);
+          }
+
+          50% {
+            transform: scale(1.12) rotate(5deg);
+          }
+
+          100% {
+            transform: scale(1.06) rotate(0deg);
+          }
         }
 
         .profile-links {
@@ -113,17 +221,28 @@
                 margin: 15px 0;
             }
 
+          .skills-body {
+            padding: 18px 14px;
+            border-radius: 18px;
+          }
+
+          div.skills-container {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+          }
+
             div.skill-card {
-                padding: 10px;
+            min-height: 98px;
+            padding: 12px 8px;
             }
 
             img.skill-logo {
-                width: 30px;
-                height: 30px;
+            width: 34px;
+            height: 34px;
             }
 
             p.skill-name {
-                font-size: 14px;
+            font-size: 1.2rem;
             }
         }
 
@@ -204,6 +323,13 @@
             .profile-links {
                 gap: 15px;
             }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          img.skill-logo,
+          .skills-container .skill-card:hover .skill-logo {
+            animation: none;
+          }
         }
     </style>
 </head>
@@ -429,101 +555,89 @@
           <ul class="portfolio-list">
 
             <li>
-              <a href="https://github.com/kunals222/TechFiesta" class="portfolio-card" style="background-image: url('./assets/images/bg4.png');">
-                <div class="card-content" style="
-                    backdrop-filter: blur(10px); 
-                    background: rgba(147, 134, 134, 0.562); 
-                    border: 1px solid rgba(155, 154, 154, 0.829); 
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-                    padding: 20px; 
-                    border-radius: 16px; 
-                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-                    max-width: fit-content;">
-            
-                  <p class="card-subtitle" style="color:  yellow; font-weight: bold;">TreatLine</p>
-            
-                  <h3 class="h3 card-title" style="color: #fff; margin: 8px 0;">Smart telemedicine appointment scheduling system.</h3>
-            
-                  <span class="btn-link" style="color: #fff; font-size: 16px;">
+              <a href="https://github.com/kunals222/TechFiesta" target="_blank" rel="noopener noreferrer" class="portfolio-card portfolio-card--treatline" style="--project-image: url('./assets/images/bg4.png'); --reveal-delay: 50ms;">
+                <div class="project-peek" aria-hidden="true">
+                  <img src="./assets/images/bg4.png" alt="TreatLine UI preview" class="project-peek-image">
+                </div>
+                <div class="card-content">
+                  <p class="card-subtitle">Featured Project</p>
+                  <h3 class="h3 card-title">TreatLine</h3>
+                  <p class="card-description">Smart telemedicine appointment scheduling system built for faster doctor-patient coordination.</p>
+                  <div class="project-tags">
+                    <span class="project-tag">FastAPI</span>
+                    <span class="project-tag">MongoDB</span>
+                    <span class="project-tag">AI Search</span>
+                  </div>
+                  <span class="btn-link">
                     <span>View Project</span>
                     <ion-icon name="arrow-forward"></ion-icon>
                   </span>
-            
                 </div>
               </a>
             </li>
 
             <li>
-              <a href="https://gfgviit-wheat.vercel.app/" class="portfolio-card" style="background-image: url('./assets/images/bg3.png');">
-                <div class="card-content" style="
-                    backdrop-filter: blur(10px); 
-                    background: rgba(147, 134, 134, 0.562); 
-                    border: 1px solid rgba(155, 154, 154, 0.829); 
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-                    padding: 20px; 
-                    border-radius: 16px; 
-                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-                    max-width: fit-content;">
-            
-                  <p class="card-subtitle" style="color: yellow; font-weight: bold;">GeekVishwa</p>
-            
-                  <h3 class="h3 card-title" style="color: #fff; margin: 8px 0;">Upcoming events at GFG VIIT.</h3>
-            
-                  <span class="btn-link" style="color: #fff; font-size: 16px;">
+              <a href="https://gfgviit-wheat.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card portfolio-card--geekvishwa" style="--project-image: url('./assets/images/bg3.png'); --reveal-delay: 130ms;">
+                <div class="project-peek project-peek--geek" aria-hidden="true">
+                  <img src="./assets/images/bg3.png" alt="GeekVishwa UI preview" class="project-peek-image">
+                </div>
+                <div class="card-content">
+                  <p class="card-subtitle">Community Platform</p>
+                  <h3 class="h3 card-title">GeekVishwa</h3>
+                  <p class="card-description">A clean events platform highlighting upcoming activities and announcements for GFG VIIT.</p>
+                  <div class="project-tags">
+                    <span class="project-tag">Frontend</span>
+                    <span class="project-tag">Responsive UI</span>
+                    <span class="project-tag">Events</span>
+                  </div>
+                  <span class="btn-link">
                     <span>View Project</span>
                     <ion-icon name="arrow-forward"></ion-icon>
                   </span>
-            
                 </div>
               </a>
             </li>
 
             <li>
-              <a href="https://devfolio.co/projects/easylink-helpers-3123" class="portfolio-card" style="background-image: url('./assets/images/l5.png');">
-                <div class="card-content" style="
-                    backdrop-filter: blur(10px); 
-                    background: rgba(147, 134, 134, 0.562); 
-                    border: 1px solid rgba(155, 154, 154, 0.829); 
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-                    padding: 20px; 
-                    border-radius: 16px; 
-                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-                    max-width: fit-content;">
-            
-                  <p class="card-subtitle" style="color:  yellow; font-weight: bold;">EasyLink Helpers</p>
-            
-                  <h3 class="h3 card-title" style="color: #fff; margin: 8px 0;">Connecting laborers with customers efficiently.</h3>
-            
-                  <span class="btn-link" style="color: #fff; font-size: 16px;">
+              <a href="https://devfolio.co/projects/easylink-helpers-3123" target="_blank" rel="noopener noreferrer" class="portfolio-card portfolio-card--easylink" style="--project-image: url('./assets/images/l5.png'); --reveal-delay: 210ms;">
+                <div class="project-peek project-peek--easylink" aria-hidden="true">
+                  <img src="./assets/images/l5.png" alt="EasyLink Helpers UI preview" class="project-peek-image">
+                </div>
+                <div class="card-content">
+                  <p class="card-subtitle">Hackathon Build</p>
+                  <h3 class="h3 card-title">EasyLink Helpers</h3>
+                  <p class="card-description">Connecting laborers with customers through a practical marketplace focused on trust and speed.</p>
+                  <div class="project-tags">
+                    <span class="project-tag">Devfolio</span>
+                    <span class="project-tag">Full Stack</span>
+                    <span class="project-tag">Problem Solving</span>
+                  </div>
+                  <span class="btn-link">
                     <span>View Project</span>
                     <ion-icon name="arrow-forward"></ion-icon>
                   </span>
-            
                 </div>
               </a>
             </li>
 
             <li>
-              <a href="https://github.com/kunals222/VishwaCare" class="portfolio-card" style="background-image: url('./assets/images/h6.png');">
-                <div class="card-content" style="
-                    backdrop-filter: blur(10px); 
-                    background: rgba(147, 134, 134, 0.562); 
-                    border: 1px solid rgba(155, 154, 154, 0.829); 
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-                    padding: 20px; 
-                    border-radius: 16px; 
-                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-                    max-width: fit-content;">
-            
-                  <p class="card-subtitle" style="color:  yellow; font-weight: bold;">VishwaCare</p>
-            
-                  <h3 class="h3 card-title" style="color: #fff; margin: 8px 0;">Hospital Bed Booking System</h3>
-            
-                  <span class="btn-link" style="color: #fff; font-size: 16px;">
+              <a href="https://github.com/kunals222/VishwaCare" target="_blank" rel="noopener noreferrer" class="portfolio-card portfolio-card--vishwacare" style="--project-image: url('./assets/images/h6.png'); --reveal-delay: 290ms;">
+                <div class="project-peek project-peek--vishwacare" aria-hidden="true">
+                  <img src="./assets/images/h6.png" alt="VishwaCare UI preview" class="project-peek-image">
+                </div>
+                <div class="card-content">
+                  <p class="card-subtitle">Healthcare Solution</p>
+                  <h3 class="h3 card-title">VishwaCare</h3>
+                  <p class="card-description">Hospital bed booking system designed to simplify emergency and planned admission management.</p>
+                  <div class="project-tags">
+                    <span class="project-tag">Healthcare</span>
+                    <span class="project-tag">Booking</span>
+                    <span class="project-tag">User Flow</span>
+                  </div>
+                  <span class="btn-link">
                     <span>View Project</span>
                     <ion-icon name="arrow-forward"></ion-icon>
                   </span>
-            
                 </div>
               </a>
             </li>
@@ -572,11 +686,21 @@
       <section class="section contact" id="contact">
         <div class="container">
 
-          <div class="contact-card">
+          <div class="contact-card contact-card--glass">
 
             <p class="card-subtitle">Feel free to reach out </p>
 
             <h2 class="h2 section-title"> I'd love to hear from you!</h2>
+
+            <p class="contact-intro">
+              Open to internships, collaboration opportunities, and meaningful tech conversations. If you have an idea,
+              project, or role in mind, let's connect.
+            </p>
+
+            <div class="contact-cta">
+              <a href="mailto:kunal.22210438@viit.ac.in" class="btn btn-primary blue">Email Me</a>
+              <a href="https://www.linkedin.com/in/kunal-suryawanshi-943827259/" target="_blank" rel="noopener noreferrer" class="btn contact-outline-btn">LinkedIn</a>
+            </div>
 
             
 
@@ -594,6 +718,8 @@
                     <address class="contact-item-link">
                       Pune , Maharashtra , India
                     </address>
+
+                    <p class="contact-item-subtext">Available for remote and on-site opportunities</p>
                   </div>
 
                 </li>
@@ -607,25 +733,13 @@
                   <div class="scrollable">
                     <h3 class="contact-item-title">Email</h3>
 
-                    <a href="mailto:kunal.22210438@viit.ac.in" class="contact-item-link circular-scroll">kunal.22210438@viit.ac.in</a>
+                    <a href="mailto:kunal.22210438@viit.ac.in" class="contact-item-link">kunal.22210438@viit.ac.in</a>
+
+                    <p class="contact-item-subtext">Response usually within 24 hours</p>
                   </div>
 
                 </li>
-
-                <li class="contact-item">
-
-                  <div class="contact-icon">
-                    <ion-icon name="call"></ion-icon>
-                  </div>
-
-                  <div>
-                    <h3 class="contact-item-title">Phone</h3>
-
-                    <a href="tel:+8485072911" class="contact-item-link">8485072911</a>
-                  </div>
-
-                </li>
-
+                
               </ul>
 
             </div>
@@ -763,9 +877,10 @@
 
     const skillsContainer = document.getElementById("skills-container-1");
 
-  skills.forEach((skill) => {
+  skills.forEach((skill, index) => {
     const skillCard = document.createElement("div");
     skillCard.classList.add("skill-card");
+    skillCard.style.setProperty("--skill-delay", `${index * 55}ms`);
     
 
     skillCard.innerHTML = `
